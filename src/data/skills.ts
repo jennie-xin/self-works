@@ -4,24 +4,39 @@ import type { SkillGroup, TimelineItem } from '@/types';
  */
 export const skillGroups: SkillGroup[] = [
   {
-    label: '前端',
+    label: '前端与跨端',
     type: 'frontend',
-    skills: ['React', 'Next.js', 'TypeScript', 'CSS / Sass', 'Tailwind', 'Framer Motion'],
+    skills: [
+      'Vue 3', 'React', 'TypeScript',
+      'Uniapp', 'Flutter', 'Tailwind CSS', 
+      'Pinia', 'ECharts', '腾讯地图'
+    ],
   },
   {
-    label: '后端',
+    label: '后端与数据库',
     type: 'backend',
-    skills: ['Node.js', 'Python', 'PostgreSQL', 'Redis', 'REST / GraphQL', 'FastAPI'],
+    skills: [
+      'Spring Boot 3', 'Nest.js', 'Node.js',
+      'MySQL', 'Redis', 'MongoDB',
+      'MyBatis-Plus', 'RabbitMQ', 'RESTful API'
+    ],
   },
   {
-    label: '工具与基础设施',
+    label: 'AI 工程化',
+    type: 'ai',
+    skills: [
+      'Spring AI', 'LangChain', 'RAG', 'MCP',
+      'Tool Calling', 'Vector Search', 'Prompt Engineering',
+      'SSE 流式传输', 'Ollama'
+    ],
+  },
+  {
+    label: '基础设施与工具',
     type: 'tool',
-    skills: ['Git', 'Docker', 'Vercel', 'AWS', 'GitHub Actions', 'Linux'],
-  },
-  {
-    label: '设计',
-    type: 'design',
-    skills: ['Figma', '设计系统', '无障碍访问', '动效设计'],
+    skills: [
+      'Git', 'Docker', 'Vercel',
+      'ECS/OSS', 'Linux', 'Nginx'
+    ],
   },
 ];
 
@@ -30,21 +45,21 @@ export const skillGroups: SkillGroup[] = [
  */
 export const timeline: TimelineItem[] = [
   {
-    year: '2022 – 至今',
-    title: '高级前端工程师',
-    organization: '字节跳动 · 北京',
-    description: '主导核心产品 UI 重构；通过代码分割与图片优化将首屏 LCP 降低 40%，Lighthouse 性能分达到 95+。',
+    year: '2026-01 - 2026-04',
+    title: '全栈开发实习生',
+    organization: '南京普惠恒丰信息科技有限公司',
+    description: '主导诊后随访核心链路开发，设计「入案→AI分组→人工审核→随访管理」状态机流转，落地模板配置、防重校验及权限隔离机制，支撑医疗业务闭环；针对AI病历引擎跨库查询瓶颈，通过Redis缓存预热+自定义线程池并行计算策略，将复杂数据聚合耗时从数秒优化至200ms级稳定响应。',
   },
   {
-    year: '2020 – 2022',
-    title: '全栈开发工程师',
-    organization: '某初创公司 · 全职',
-    description: '独立负责从需求分析到产品交付的全流程；使用 Next.js + PostgreSQL 构建了服务超过 10 万用户的 SaaS 平台。',
+    year: '2025-03 - 2025-06', // 修正原时间笔误（原始简历为2025.03-2025.06）
+    title: '前端负责人',
+    organization: '湖科大KingCola-ICG-工作室',
+    description: '作为前端负责人主导跨端小程序开发，集成腾讯地图SDK实现缺陷点位精准标注、聚合展示与轨迹回放；通过分包加载、图片懒加载、地图事件防抖等策略优化性能，使LCP稳定在2.2s以内；使用ECharts构建缺陷分布热力图/多维度统计视图，支撑道路养护决策效率提升。',
   },
   {
-    year: '2018 – 2020',
+    year: '2024-09 - 2027-06',
     title: '本科',
-    organization: '中南大学',
-    description: '主修软件工程与分布式系统，以优秀毕业生身份完成学业，毕业论文获校级优秀论文奖。',
+    organization: '湖南科技大学',
+    description: '主修软件工程、操作系统、数据库系统、机器学习等核心课程；在校期间获计算机设计大赛省二、网络技术挑战赛省三、物联网技术创新赛省二等竞赛奖项，主持大创项目获校级二等奖；持续深耕Vue/TS、SpringBoot等全栈技术，同步探索RAG、多Agent等AI工程化落地实践。',
   },
 ];

@@ -1,18 +1,32 @@
 import type { Project } from '@/types';
-/**
- * 项目列表
- */
+
 export const projects: Project[] = [
   {
     id: '1',
-    title: 'DevBoard · 研发效能看板',
-    description: '整合 GitHub、Jira 与部署系统的研发数据看板，已帮助 3 支工程团队用于追踪交付周期与质量趋势。',
-    badge: 'DB',
-    image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=500&fit=crop',
-    tags: ['React', 'Node.js', 'Chart.js', 'PostgreSQL'],
+    title: 'AstraStudio——多模态AI工作台',
+    description: '基于RAG与Multi-Agent架构的企业级AI工作台,融合联网搜索/本地知识库双引擎与持久化记忆,通过可调用的Skills和Tools工具集实现从知识库检索到文件生成的全链路自动化创作',
+    badge: 'AS',
+    image: '/project/as.png',
+    tags: ['Langchain4j', 'SpringBoot', 'Vue', 'MySQL'],
     links: [
       { label: '源码', href: '#' },
       { label: '演示', href: '#' },
+    ],
+    fullDescription: 'AstraStudio 是一款面向企业场景的多模态 AI 工作台，核心解决知识管理与 AI 生成之间的断层问题。系统采用 RAG（检索增强生成）架构，融合联网搜索与本地知识库双引擎，通过 Multi-Agent 协作模式实现复杂任务的自动拆解与执行。平台内置持久化记忆模块，支持跨会话上下文延续，并暴露标准化的 Skills & Tools 接口供业务方灵活编排。',
+    gallery: [
+      { src: 'https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&h=800&fit=crop', alt: 'AstraStudio 主界面' },
+      { src: 'https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=1200&h=800&fit=crop', alt: 'Agent 工作流编排' },
+      { src: 'https://images.unsplash.com/photo-1620712943543-bcc4688e7485?w=1200&h=800&fit=crop', alt: '知识库管理' },
+      { src: 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=1200&h=800&fit=crop', alt: '对话交互界面' },
+    ],
+    video: { src: 'https://www.w3schools.com/html/mov_bbb.mp4', poster: '/project/as.png' },
+    techStack: [
+      { name: 'Langchain4j', desc: 'RAG 检索链路与 Agent 编排框架' },
+      { name: 'Spring Boot 3', desc: '后端服务与 API 网关' },
+      { name: 'Vue 3 + TypeScript', desc: '前端 SPA 与实时通信' },
+      { name: 'MySQL + Redis', desc: '持久化存储与缓存层' },
+      { name: 'Spring AI', desc: '多模型统一接入层' },
+      { name: 'Elasticsearch', desc: '向量检索与全文搜索' },
     ],
   },
   {
@@ -26,6 +40,19 @@ export const projects: Project[] = [
       { label: '源码', href: '#' },
       { label: '演示', href: '#' },
     ],
+    fullDescription: '一款受 Notion 启发的块级编辑器协作应用。核心采用 Tiptap 富文本框架实现可扩展的 Block 编辑体系，每个内容块（标题、段落、代码、图片等）均为独立节点，支持拖拽排序与嵌套层级。后端基于 Supabase 提供实时数据库同步，前端通过 Service Worker + IndexedDB 实现离线优先策略，断网时数据暂存本地，联网后自动冲突合并。',
+    gallery: [
+      { src: 'https://images.unsplash.com/photo-1517842645767-c639042777db?w=1200&h=800&fit=crop', alt: '编辑器主界面' },
+      { src: 'https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?w=1200&h=800&fit=crop', alt: '嵌套页面结构' },
+      { src: 'https://images.unsplash.com/photo-1507925921958-8a62f3d1a50d?w=1200&h=800&fit=crop', alt: '多人协同时光轴' },
+    ],
+    techStack: [
+      { name: 'Next.js 14 (App Router)', desc: 'SSR + 服务端组件渲染' },
+      { name: 'Tiptap / ProseMirror', desc: '可扩展块编辑器内核' },
+      { name: 'Supabase (PostgreSQL)', desc: '实时同步与用户认证' },
+      { name: 'Service Worker', desc: '离线缓存与后台同步' },
+      { name: 'Yjs (CRDT)', desc: '无冲突协同编辑算法' },
+    ],
   },
   {
     id: '3',
@@ -37,6 +64,20 @@ export const projects: Project[] = [
     links: [
       { label: '源码', href: '#' },
       { label: '文档', href: '#' },
+    ],
+    fullDescription: '面向中小电商场景的高性能后端服务。基于 FastAPI 框架构建 RESTful API，采用领域驱动设计（DDD）划分库存、订单、支付、物流等核心域。系统集成了微信支付、支付宝双渠道支付网关，并通过 Webhook 机制对接第三方物流服务商实现自动运单跟踪。日均稳定处理超 10,000 笔交易，P99 响应时间控制在 200ms 以内。',
+    gallery: [
+      { src: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=1200&h=800&fit=crop', alt: 'API 架构总览' },
+      { src: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&h=800&fit=crop', alt: '数据监控面板' },
+      { src: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&h=800&fit=crop', alt: '订单流程图' },
+    ],
+    video: { src: 'https://www.w3schools.com/html/movie.mp4' },
+    techStack: [
+      { name: 'Python / FastAPI', desc: '异步高性能 API 框架' },
+      { name: 'PostgreSQL', desc: '事务型关系数据库' },
+      { name: 'Redis', desc: '缓存、分布式锁与消息队列' },
+      { name: 'Celery', desc: '异步任务调度（库存扣减/通知）' },
+      { name: 'Docker Compose', desc: '容器化部署编排' },
     ],
   },
   {
@@ -50,6 +91,16 @@ export const projects: Project[] = [
       { label: '源码', href: '#' },
       { label: '市场', href: '#' },
     ],
+    fullDescription: '一款面向 TypeScript 开发者的 VS Code 扩展插件。通过解析源码生成 AST（抽象语法树），在保留语义的前提下识别可优化的代码模式：重复代码提取、过长函数拆分、死代码消除、变量命名规范化等。提供 diff 预览功能，开发者可在应用重构前逐行审查变更，一键接受或回滚。',
+    gallery: [
+      { src: 'https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=1200&h=800&fit=crop', alt: '重构建议面板' },
+      { src: 'https://images.unsplash.com/photo-1542831371-29b0f74f9713?w=1200&h=800&fit=crop', alt: 'Diff 预览对比' },
+    ],
+    techStack: [
+      { name: 'TypeScript Compiler API', desc: 'AST 解析与类型检查' },
+      { name: 'VS Code Extension API', desc: '编辑器集成与 UI 渲染' },
+      { name: 'Webview API', desc: '自定义面板与交互界面' },
+    ],
   },
   {
     id: '5',
@@ -62,6 +113,18 @@ export const projects: Project[] = [
       { label: '源码', href: '#' },
       { label: '文档', href: '#' },
     ],
+    fullDescription: '零依赖的 Canvas 2D 图表库，Gzip 后仅 15KB。支持折线图、柱状图、面积图、散点图、饼图等 12 种图表类型，每种图表均提供细粒度的主题配置接口。内部采用虚拟化渲染策略，当数据点超过阈值时自动降采样，确保万级数据点仍能保持 60fps 流畅渲染。',
+    gallery: [
+      { src: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&h=800&fit=crop', alt: '图表类型展示' },
+      { src: 'https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?w=1200&h=800&fit=crop', alt: '大数据量性能测试' },
+      { src: 'https://images.unsplash.com/photo-1518186285589-2f7649de83e0?w=1200&h=800&fit=crop', alt: '主题定制示例' },
+    ],
+    video: { src: 'https://www.w3schools.com/html/mov_bbb.mp4' },
+    techStack: [
+      { name: 'Canvas 2D API', desc: '原生绑定 GPU 加速渲染' },
+      { name: 'TypeScript', desc: '类型安全的配置式 API' },
+      { name: 'Rollup', desc: 'Tree-shaking 按需打包' },
+    ],
   },
   {
     id: '6',
@@ -73,6 +136,18 @@ export const projects: Project[] = [
     links: [
       { label: '源码', href: '#' },
       { label: '演示', href: '#' },
+    ],
+    fullDescription: '面向创意编程与数据艺术方向的轻量级 3D 引擎封装。在原生 WebGL 之上抽象出场景图（Scene Graph）、相机系统、PBR 材质管线及基础物理碰撞检测。专为 generative art 和交互装置设计，提供声明式的场景描述语法，让艺术家无需深入图形学底层即可创作 3D 作品。',
+    gallery: [
+      { src: 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=1200&h=800&fit=crop', alt: '3D 场景渲染' },
+      { src: 'https://images.unsplash.com/photo-1633356122544-f134324a6cee?w=1200&h=800&fit=crop', alt: '材质与光照效果' },
+      { src: 'https://images.unsplash.com/photo-1618514763804-bfaebecce2dc?w=1200&h=800&fit=crop', alt: '粒子系统演示' },
+    ],
+    video: { src: 'https://www.w3schools.com/html/movie.mp4' },
+    techStack: [
+      { name: 'WebGL 2.0 / GLSL', desc: 'GPU 可编程渲染管线' },
+      { name: '线性代数 (mat4/vec3)', desc: '变换矩阵与空间运算' },
+      { name: '物理引擎 ( lightweight )', desc: '刚体碰撞与约束求解' },
     ],
   },
 ];

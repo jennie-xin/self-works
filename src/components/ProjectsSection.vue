@@ -1,5 +1,12 @@
 <script setup lang="ts">
+import { useRouter } from 'vue-router';
 import { projects } from '@/data/projects';
+
+const router = useRouter();
+
+const goToDetail = (id: string) => {
+  router.push(`/projects/${id}`);
+};
 </script>
 
 <template>
@@ -18,6 +25,7 @@ import { projects } from '@/data/projects';
           v-for="project in projects"
           :key="project.id"
           class="project-card scroll-reveal"
+          @click="goToDetail(project.id)"
         >
           <div class="project-cover">
             <img :src="project.image" :alt="project.title" class="project-image" loading="lazy" />

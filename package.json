@@ -10,7 +10,8 @@
   },
   "dependencies": {
     "@emailjs/browser": "^4.4.1",
-    "vue": "^3.5.32"
+    "vue": "^3.5.32",
+    "vue-router": "4"
   },
   "devDependencies": {
     "@types/node": "^24.12.2",

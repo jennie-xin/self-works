@@ -6,6 +6,10 @@ export interface Project {
   image: string;
   tags: string[];
   links: { label: string; href: string }[];
+  fullDescription?: string;
+  gallery?: { src: string; alt: string }[];
+  video?: { src: string; poster?: string };
+  techStack?: { name: string; desc: string }[];
 }
 
 export interface TimelineItem {
@@ -18,7 +22,7 @@ export interface TimelineItem {
 export interface SkillGroup {
   label: string;
   skills: string[];
-  type: 'frontend' | 'backend' | 'tool' | 'design';
+  type: 'frontend' | 'backend' | 'tool' | 'ai';
 }
 
 export interface SocialLink {
