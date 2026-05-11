@@ -18,7 +18,7 @@ import { info } from '@/data/self';
           </p>
           <div class="hero-actions">
             <a href="#projects" class="btn btn-primary">查看项目</a>
-            <a href="/resume.docx" download class="btn btn-outline">下载简历</a>
+            <a href="/resume.pdf" download class="btn btn-outline">下载简历</a>
           </div>
         </div>
 

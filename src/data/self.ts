@@ -5,7 +5,7 @@ import type { SelfInfo } from "@/types";
  */
 export const info: SelfInfo = {
   name: '杨权',
-  role: '全栈开发实习生',
+  role: '全栈开发实习生·Looking for a job',
   desc: '我构建有温度的数字产品 —— 从数据库设计到精细的用户界面，专注于 Web 性能优化、简洁的系统架构，以及让那些让人用起来舒服的交互细节。'
 }
 
