@@ -9,7 +9,6 @@
     },
     "ignoreDeprecations": "6.0",
 
-    /* Linting */
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "erasableSyntaxOnly": true,
