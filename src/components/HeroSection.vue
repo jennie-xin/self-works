@@ -9,8 +9,8 @@ import { info } from '@/data/self';
         <div class="hero-content">
           <p class="hero-eyebrow">你好，我是</p>
           <h1 class="hero-name">{{ info.name }}</h1>
-          <div class="hero-role-badge">
-            <span class="status-dot"></span>
+          <div class="hero-role-badge" v-if="info.role">
+            <span class="status-dot" ></span>
             {{ info.role }}
           </div>
           <p class="hero-bio">
@@ -18,7 +18,7 @@ import { info } from '@/data/self';
           </p>
           <div class="hero-actions">
             <a href="#projects" class="btn btn-primary">查看项目</a>
-            <a href="/resume.pdf" download class="btn btn-outline">下载简历</a>
+            <!-- <a href="/resume.pdf" download class="btn btn-outline">下载简历</a> -->
           </div>
         </div>
 

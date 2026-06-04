@@ -17,17 +17,17 @@ export const skillGroups: SkillGroup[] = [
     type: 'backend',
     skills: [
       'Spring Boot 3', 'Nest.js', 'Node.js',
-      'MySQL', 'Redis', 'MongoDB',
-      'MyBatis-Plus', 'RabbitMQ', 'RESTful API'
+      'MySQL', 'Redis', 'MongoDB',"PostgreSQL",
+      'MyBatis-Plus', 'RESTful API'
     ],
   },
   {
     label: 'AI 工程化',
     type: 'ai',
     skills: [
-      'Spring AI', 'LangChain', 'RAG', 'MCP',
+      'LangChain4j', 'RAG', 'MCP','Skill',
       'Tool Calling', 'Vector Search', 'Prompt Engineering',
-      'SSE 流式传输', 'Ollama'
+      'SSE 流式传输', 'OpenSpec','SpecKit'
     ],
   },
   {
@@ -35,7 +35,7 @@ export const skillGroups: SkillGroup[] = [
     type: 'tool',
     skills: [
       'Git', 'Docker', 'Vercel',
-      'ECS/OSS', 'Linux', 'Nginx'
+      'ECS/OSS', 'Nginx'
     ],
   },
 ];
@@ -45,7 +45,7 @@ export const skillGroups: SkillGroup[] = [
  */
 export const timeline: TimelineItem[] = [
   {
-    year: '2026-01 - 2026-04',
+    year: '2026-02 - 2026-05',
     title: '全栈开发实习生',
     organization: '南京普惠恒丰信息科技有限公司',
     description: '主导诊后随访核心链路开发，设计「入案→AI分组→人工审核→随访管理」状态机流转，落地模板配置、防重校验及权限隔离机制，支撑医疗业务闭环；针对AI病历引擎跨库查询瓶颈，通过Redis缓存预热+自定义线程池并行计算策略，将复杂数据聚合耗时从数秒优化至200ms级稳定响应。',
