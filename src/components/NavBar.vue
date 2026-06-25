@@ -1,13 +1,19 @@
 <script setup lang="ts">
-import { ref } from 'vue';
-import { useRouter } from 'vue-router';
-import { useTheme } from '@/composables/useTheme';
-import { navLinks } from '@/data/navs';
+import { ref, onMounted, onUnmounted } from 'vue'
+import { useRouter } from 'vue-router'
+import { useTheme } from '@/composables/useTheme'
+import { navLinks } from '@/data/navs'
 
-const router = useRouter();
-const { toggle, isDark } = useTheme();
+const router = useRouter()
+const { toggle, isDark } = useTheme()
 
-const mobileMenuOpen = ref(false);
+const mobileMenuOpen = ref(false)
+const scrolled = ref(false)
+
+const onScroll = () => { scrolled.value = window.scrollY > 100 }
+
+onMounted(() => { window.addEventListener('scroll', onScroll, { passive: true }) })
+onUnmounted(() => { window.removeEventListener('scroll', onScroll) })
 
 const toggleMobileMenu = () => {
   mobileMenuOpen.value = !mobileMenuOpen.value;
@@ -39,7 +45,7 @@ const goHome = () => {
 </script>
 
 <template>
-  <nav class="navbar">
+  <nav class="navbar" :class="{ scrolled }">
     <div class="nav-inner">
       <a href="#hero" class="nav-logo" @click.prevent="goHome">
         Shaun<span>.dev</span>

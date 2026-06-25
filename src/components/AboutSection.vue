@@ -1,10 +1,29 @@
 <script setup lang="ts">
-import { skillGroups, timeline } from '@/data/skills';
-import { aboutBio } from '@/data/self';
+import { onMounted } from 'vue'
+import gsap from 'gsap'
+import { skillGroups, timeline } from '@/data/skills'
+import { aboutBio } from '@/data/self'
+
+onMounted(() => {
+  gsap.from('.about-left > *', {
+    y: 30, opacity: 0, duration: 0.6, stagger: 0.1,
+    scrollTrigger: { trigger: '.about-left', start: 'top 80%' }
+  })
+
+  gsap.from('.tag', {
+    scale: 0.6, opacity: 0, duration: 0.4, stagger: 0.03, ease: 'back.out(1.4)',
+    scrollTrigger: { trigger: '.skills-panel', start: 'top 80%' }
+  })
+
+  gsap.from('.timeline-item', {
+    x: -30, opacity: 0, duration: 0.5, stagger: 0.15,
+    scrollTrigger: { trigger: '.timeline', start: 'top 85%' }
+  })
+})
 </script>
 
 <template>
-  <section id="about" class="about-section scroll-reveal">
+  <section id="about" class="about-section">
     <div class="container">
       <div class="about-grid">
         <div class="about-left">

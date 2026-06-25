@@ -1,8 +1,9 @@
 <script setup lang="ts">
-import { ref, reactive } from 'vue';
-import { socialLinks, email } from '@/data/socialLinks';
-import { contactBio } from '@/data/self';
-import { sendContactEmail, type EmailParams } from '@/utils/email';
+import { ref, reactive, onMounted } from 'vue'
+import gsap from 'gsap'
+import { socialLinks, email } from '@/data/socialLinks'
+import { contactBio } from '@/data/self'
+import { sendContactEmail, type EmailParams } from '@/utils/email'
 
 const copyButtonText = ref('复制');
 const copyButtonClass = ref('');
@@ -40,20 +41,20 @@ const resetForm = () => {
 
 const handleSubmit = async () => {
   if (!form.name || !form.email || !form.message) {
-    sendStatus.value = 'error';
-    statusMessage.value = '请填写所有字段';
-    return;
+    sendStatus.value = 'error'
+    statusMessage.value = '请填写所有字段'
+    return
   }
 
-  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
   if (!emailRegex.test(form.email)) {
-    sendStatus.value = 'error';
-    statusMessage.value = '请输入有效的邮箱地址';
-    return;
+    sendStatus.value = 'error'
+    statusMessage.value = '请输入有效的邮箱地址'
+    return
   }
 
-  sendStatus.value = 'loading';
-  statusMessage.value = '正在发送...';
+  sendStatus.value = 'loading'
+  statusMessage.value = '正在发送...'
 
   try {
     const params: EmailParams = {
@@ -61,28 +62,51 @@ const handleSubmit = async () => {
       from_email: form.email,
       message: form.message,
       to_name: '博主',
-    };
+    }
 
-    await sendContactEmail(params);
+    await sendContactEmail(params)
 
-    sendStatus.value = 'success';
-    statusMessage.value = '留言已成功发送！感谢你的来信 🎉';
+    sendStatus.value = 'success'
+    statusMessage.value = '留言已成功发送！感谢你的来信 🎉'
 
-    setTimeout(resetForm, 4000);
+    setTimeout(resetForm, 4000)
   } catch (err) {
-    console.error('发送失败:', err);
-    sendStatus.value = 'error';
-    statusMessage.value = '发送失败，请稍后重试或直接发邮件联系我';
+    console.error('发送失败:', err)
+    sendStatus.value = 'error'
+    statusMessage.value = '发送失败，请稍后重试或直接发邮件联系我'
     setTimeout(() => {
-      sendStatus.value = 'idle';
-      statusMessage.value = '';
-    }, 4000);
+      sendStatus.value = 'idle'
+      statusMessage.value = ''
+    }, 4000)
   }
-};
+}
+
+const magneticMove = (e: MouseEvent) => {
+  const btn = e.currentTarget as HTMLElement
+  const rect = btn.getBoundingClientRect()
+  const x = e.clientX - rect.left - rect.width / 2
+  const y = e.clientY - rect.top - rect.height / 2
+  gsap.to(btn, { x: x * 0.25, y: y * 0.25, duration: 0.3, ease: 'power2.out' })
+}
+
+const magneticLeave = (e: MouseEvent) => {
+  gsap.to(e.currentTarget as HTMLElement, { x: 0, y: 0, duration: 0.5, ease: 'elastic.out(1, 0.4)' })
+}
+
+onMounted(() => {
+  gsap.from('.contact-left > *', {
+    y: 30, opacity: 0, duration: 0.5, stagger: 0.1,
+    scrollTrigger: { trigger: '.contact-section', start: 'top 80%' }
+  })
+  gsap.from('.contact-form-wrap', {
+    y: 40, opacity: 0, duration: 0.6,
+    scrollTrigger: { trigger: '.contact-form-wrap', start: 'top 85%' }
+  })
+})
 </script>
 
 <template>
-  <section id="contact" class="contact-section scroll-reveal">
+  <section id="contact" class="contact-section">
     <div class="container">
       <div class="contact-layout">
         <div class="contact-left">
@@ -176,6 +200,8 @@ const handleSubmit = async () => {
               class="btn btn-primary btn-submit"
               :class="{ loading: sendStatus === 'loading' }"
               :disabled="sendStatus === 'loading' || sendStatus === 'success'"
+              @mousemove="magneticMove"
+              @mouseleave="magneticLeave"
             >
               <span v-if="sendStatus === 'loading'" class="btn-spinner"></span>
               {{ sendStatus === 'loading' ? '发送中...' : sendStatus === 'success' ? '已发送 ✓' : '发送留言' }}

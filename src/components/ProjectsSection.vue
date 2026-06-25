@@ -1,18 +1,50 @@
 <script setup lang="ts">
-import { useRouter } from 'vue-router';
-import { projects } from '@/data/projects';
+import { onMounted, onUnmounted, ref } from 'vue'
+import { useRouter } from 'vue-router'
+import gsap from 'gsap'
+import ScrollTrigger from 'gsap/ScrollTrigger'
+import { projects } from '@/data/projects'
+import { useTilt } from '@/composables/useTilt'
 
-const router = useRouter();
+const router = useRouter()
+const sectionEl = ref<HTMLElement | null>(null)
+const cardRefs = ref<HTMLElement[]>([])
+let cleanups: (() => void)[] = []
 
 const goToDetail = (id: string) => {
-  router.push(`/projects/${id}`);
-};
+  router.push(`/projects/${id}`)
+}
+
+const setCardRef = (el: any, index: number) => {
+  if (el) cardRefs.value[index] = el
+}
+
+onMounted(() => {
+  cardRefs.value.forEach(card => {
+    cleanups.push(useTilt(card, { max: 8, scale: 1.02 }))
+  })
+
+  gsap.from('.projects-header', {
+    y: 30, opacity: 0, duration: 0.6,
+    scrollTrigger: { trigger: '.projects-header', start: 'top 85%' }
+  })
+
+  gsap.from(cardRefs.value, {
+    y: 50, opacity: 0, duration: 0.7, stagger: 0.12, ease: 'power2.out',
+    scrollTrigger: { trigger: '.projects-grid', start: 'top 80%' }
+  })
+})
+
+onUnmounted(() => {
+  cleanups.forEach(fn => fn())
+  ScrollTrigger.getAll().forEach(st => st.kill())
+})
 </script>
 
 <template>
-  <section id="projects" class="projects-section">
+  <section id="projects" ref="sectionEl" class="projects-section">
     <div class="container">
-      <div class="projects-header scroll-reveal">
+      <div class="projects-header">
         <div>
           <p class="section-label">作品</p>
           <h2 class="section-title">精选项目</h2>
@@ -22,9 +54,10 @@ const goToDetail = (id: string) => {
 
       <div class="projects-grid">
         <article
-          v-for="project in projects"
+          v-for="(project, index) in projects"
           :key="project.id"
-          class="project-card scroll-reveal"
+          :ref="(el) => setCardRef(el, index)"
+          class="project-card glow-card"
           @click="goToDetail(project.id)"
         >
           <div class="project-cover">
@@ -36,8 +69,8 @@ const goToDetail = (id: string) => {
             <p class="project-desc">{{ project.description }}</p>
             <div class="project-tags">
               <span
-                v-for="(tag, index) in project.tags"
-                :key="index"
+                v-for="(tag, idx) in project.tags"
+                :key="idx"
                 class="project-tag"
               >
                 {{ tag }}
@@ -45,8 +78,8 @@ const goToDetail = (id: string) => {
             </div>
             <div class="project-links">
               <a
-                v-for="(link, index) in project.links"
-                :key="index"
+                v-for="(link, idx) in project.links"
+                :key="idx"
                 :href="link.href"
                 class="project-link"
               >
