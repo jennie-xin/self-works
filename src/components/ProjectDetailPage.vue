@@ -1,11 +1,20 @@
 <script setup lang="ts">
-import { ref, computed, onMounted, onUnmounted } from 'vue';
+import { ref, computed, onMounted, onUnmounted, nextTick } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
 import { projects } from '@/data/projects';
 import ImageLightbox from './ImageLightbox.vue';
 
 const route = useRoute();
 const router = useRouter();
+
+const goBackToProjects = () => {
+  router.push('/').then(() => {
+    setTimeout(() => {
+      const el = document.querySelector('#projects');
+      el?.scrollIntoView({ behavior: 'smooth' });
+    }, 500);
+  });
+};
 
 const project = computed(() => {
   return projects.find((p) => p.id === route.params.id);
@@ -43,7 +52,6 @@ onUnmounted(() => {
     <div class="detail-hero">
       <img :src="project.image" :alt="project.title" class="detail-cover" />
       <div class="detail-hero-overlay">
-        <span class="detail-badge">{{ project.badge }}</span>
         <h1 class="detail-title">{{ project.title }}</h1>
         <div class="detail-tags">
           <span v-for="(tag, i) in project.tags" :key="i" class="detail-tag">{{ tag }}</span>
@@ -107,7 +115,7 @@ onUnmounted(() => {
           >
             {{ link.label }}
           </a>
-          <button class="btn btn-primary" @click="router.push('/')">返回首页</button>
+          <button class="btn btn-primary" @click="goBackToProjects">返回项目列表</button>
         </div>
       </section>
     </div>

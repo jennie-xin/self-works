@@ -1,13 +1,11 @@
 <script setup lang="ts">
 import { ref, onMounted, onUnmounted } from 'vue'
 import { useMouse } from '@/composables/useMouse'
-import gsap from 'gsap'
 
 const { smoothX, smoothY, mouseX, mouseY, isTouch, isIdle } = useMouse()
 
 const el = ref<HTMLElement | null>(null)
 let rafId: number | null = null
-let idleTween: gsap.core.Tween | null = null
 
 const charX = ref(0)
 const charY = ref(0)
@@ -45,7 +43,6 @@ onMounted(() => {
 
 onUnmounted(() => {
   if (rafId) cancelAnimationFrame(rafId)
-  if (idleTween) idleTween.kill()
 })
 </script>
 

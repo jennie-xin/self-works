@@ -11,7 +11,7 @@ onMounted(() => {
   })
 
   gsap.from('.tag', {
-    scale: 0.6, opacity: 0, duration: 0.4, stagger: 0.03, ease: 'back.out(1.4)',
+    y: 10, opacity: 0, duration: 0.4, stagger: 0.03, ease: 'power2.out',
     scrollTrigger: { trigger: '.skills-panel', start: 'top 80%' }
   })
 

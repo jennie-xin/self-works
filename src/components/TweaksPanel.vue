@@ -11,7 +11,7 @@ const isOpen = ref(false);
 
 const currentFontSize = ref('default');
 const currentWidth = ref('default');
-const currentFont = ref('round');
+const currentFont = ref('default');
 
 onMounted(() => {
   document.documentElement.setAttribute('data-font-size', currentFontSize.value);

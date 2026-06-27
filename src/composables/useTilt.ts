@@ -30,7 +30,7 @@ function bindTilt(el: HTMLElement, options: TiltOptions) {
   }
 
   function onLeave() {
-    el.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) scale(1)'
+    el.style.transform = ''
     el.style.transition = `transform ${speed}ms cubic-bezier(0.23, 1, 0.32, 1)`
   }
 

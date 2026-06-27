@@ -15,8 +15,15 @@ const router = createRouter({
       props: true,
     },
   ],
-  scrollBehavior() {
-    return { top: 0 };
+  scrollBehavior(to, _from, savedPosition) {
+    if (savedPosition) {
+      return savedPosition;
+    }
+    // hash 滚动由组件手动处理
+    if (to.hash) {
+      return false;
+    }
+    return { top: 0, left: 0 };
   },
 });
 

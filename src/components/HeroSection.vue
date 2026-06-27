@@ -2,7 +2,6 @@
 import { onMounted } from 'vue'
 import gsap from 'gsap'
 import { info } from '@/data/self'
-import ShootingStars from '@/components/effects/ShootingStars.vue'
 import SpotlightGlow from '@/components/effects/SpotlightGlow.vue'
 import ColourfulText from '@/components/effects/ColourfulText.vue'
 
@@ -19,7 +18,6 @@ onMounted(() => {
 
 <template>
   <section id="hero" class="hero-section">
-    <ShootingStars />
     <SpotlightGlow />
     <div class="container" style="position: relative; z-index: 2;">
       <div class="hero-grid">

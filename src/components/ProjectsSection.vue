@@ -7,7 +7,6 @@ import { projects } from '@/data/projects'
 import { useTilt } from '@/composables/useTilt'
 
 const router = useRouter()
-const sectionEl = ref<HTMLElement | null>(null)
 const cardRefs = ref<HTMLElement[]>([])
 let cleanups: (() => void)[] = []
 
@@ -31,7 +30,12 @@ onMounted(() => {
 
   gsap.from(cardRefs.value, {
     y: 50, opacity: 0, duration: 0.7, stagger: 0.12, ease: 'power2.out',
-    scrollTrigger: { trigger: '.projects-grid', start: 'top 80%' }
+    scrollTrigger: { trigger: '.projects-grid', start: 'top 80%' },
+    onComplete: () => {
+      cardRefs.value.forEach(card => {
+        gsap.set(card, { clearProps: 'transform,opacity' })
+      })
+    }
   })
 })
 
@@ -42,7 +46,7 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <section id="projects" ref="sectionEl" class="projects-section">
+  <section id="projects" class="projects-section">
     <div class="container">
       <div class="projects-header">
         <div>
@@ -62,7 +66,6 @@ onUnmounted(() => {
         >
           <div class="project-cover">
             <img :src="project.image" :alt="project.title" class="project-image" loading="lazy" />
-            <div class="cover-badge">{{ project.badge }}</div>
           </div>
           <div class="project-body">
             <h3 class="project-title">{{ project.title }}</h3>
