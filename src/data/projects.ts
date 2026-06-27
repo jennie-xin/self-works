@@ -48,7 +48,7 @@ export const projects: Project[] = [
       { src: '/project/readex/context.png', alt: '语境回溯' },
     ],
     video: {
-      src: '/project/readex/demo.mp4',
+      src: 'https://self-works-assets.oss-cn-shenzhen.aliyuncs.com/videos/readex-demo.mp4',
     },
     techStack: [
       { name: 'Swift / UIKit', desc: 'iOS 原生开发' },
@@ -78,7 +78,7 @@ export const projects: Project[] = [
       { src: '/project/haicheng/archive.png', alt: '结果管理页面' },
     ],
     video: {
-      src: '/project/haicheng/demo.mp4',
+      src: 'https://self-works-assets.oss-cn-shenzhen.aliyuncs.com/videos/haicheng-demo.mp4',
     },
     techStack: [
       { name: 'Vue 3 + TypeScript', desc: 'Web 管理平台前端框架' },
@@ -111,7 +111,7 @@ export const projects: Project[] = [
       { src: '/project/hospital/admission.png', alt: '入院登记' },
     ],
     video: {
-      src: '/project/hospital/demo.mp4',
+      src: 'https://self-works-assets.oss-cn-shenzhen.aliyuncs.com/videos/hospital-demo.mp4',
     },
     techStack: [
       { name: 'Vue 3 + TypeScript', desc: '前端管理后台框架' },
@@ -142,7 +142,7 @@ export const projects: Project[] = [
       { src: '/project/ai-video-audit/multi-agent.png', alt: '多 Agent 审核现场' },
     ],
     video: {
-      src: '/project/ai-video-audit/demo.mp4',
+      src: 'https://self-works-assets.oss-cn-shenzhen.aliyuncs.com/videos/ai-video-audit-demo.mp4',
     },
     techStack: [
       { name: 'Vue 3 + TypeScript', desc: '前端 SPA 框架与类型安全' },
@@ -222,7 +222,7 @@ export const projects: Project[] = [
       { src: '/project/intelliresume/editor.png', alt: '简历编辑器' },
     ],
     video: {
-      src: '/project/intelliresume/demo.mp4',
+      src: 'https://self-works-assets.oss-cn-shenzhen.aliyuncs.com/videos/intelliresume-demo.mp4',
     },
     techStack: [
       { name: 'React + TypeScript', desc: '函数式组件与全量类型约束' },
