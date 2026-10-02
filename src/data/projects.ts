@@ -48,7 +48,7 @@ export const projects: Project[] = [
       { src: '/project/readex/context.png', alt: '语境回溯' },
     ],
     video: {
-      src: 'https://zhouxin.longjinapi.com/videos/readex-demo.mp4',
+      src: '/videos/readex-demo.mp4',
     },
     techStack: [
       { name: 'Swift / UIKit', desc: 'iOS 原生开发' },
@@ -61,14 +61,14 @@ export const projects: Project[] = [
   {
     id: '3',
     title: '海澄视界 —— 无人机载弱深度先验浅水智能巡检与图像复原系统',
-    description: '大创省级立项项目，基于无人机载平台与弱深度先验算法，实现浅水区域智能巡检与水下图像复原；独立开发 Web 管理平台前后端，支持任务调度、批量复原与结果归档。',
+    description: '大创国家级立项项目，基于无人机载平台与弱深度先验算法，实现浅水区域智能巡检与水下图像复原；独立开发 Web 管理平台前后端，支持任务调度、批量复原与结果归档。',
     badge: 'HC',
     image: '/project/haicheng/drone-inspection.png',
     tags: ['Vue 3', 'TypeScript', 'Python', 'PyTorch', '计算机视觉', '深度学习'],
     links: [
       { label: '源码暂不公开（涉及竞赛项目，敬请谅解）', href: '#' },
     ],
-    fullDescription: '本项目为大创省级立项项目，针对浅水区域巡检效率低、水下图像质量差的痛点，设计了一套"无人机端 + 地面站/云端 + Web 平台"的完整智能巡检系统。算法层基于 DCCR-Net（弱深度先验耦合复原网络），融合几何畸变校正、眩光感知与辐射复原三分支，显著提升浅水航拍图像质量。平台层独立开发 Vue 3 + TypeScript 管理后台，实现巡检任务调度、智能复原、批量处理与结果归档等全流程功能。项目获 2026 年海峡两岸暨港澳地区大学生计算机创新作品三等奖。',
+    fullDescription: '本项目为大创国家级立项项目，针对浅水区域巡检效率低、水下图像质量差的痛点，设计了一套"无人机端 + 地面站/云端 + Web 平台"的完整智能巡检系统。算法层基于 DCCR-Net（弱深度先验耦合复原网络），融合几何畸变校正、眩光感知与辐射复原三分支，显著提升浅水航拍图像质量。平台层独立开发 Vue 3 + TypeScript 管理后台，实现巡检任务调度、智能复原、批量处理与结果归档等全流程功能。项目获 2026 年海峡两岸暨港澳地区大学生计算机创新作品三等奖。',
     gallery: [
       { src: '/project/haicheng/drone-inspection.png', alt: '无人机浅水巡检示意图' },
       { src: '/project/haicheng/algorithm-arch.png', alt: 'DCCR-Net 算法架构' },
@@ -78,7 +78,7 @@ export const projects: Project[] = [
       { src: '/project/haicheng/archive.png', alt: '结果管理页面' },
     ],
     video: {
-      src: 'https://zhouxin.longjinapi.com/videos/haicheng-demo.mp4',
+      src: '/videos/haicheng-demo.mp4',
     },
     techStack: [
       { name: 'Vue 3 + TypeScript', desc: 'Web 管理平台前端框架' },
@@ -111,7 +111,7 @@ export const projects: Project[] = [
       { src: '/project/hospital/admission.png', alt: '入院登记' },
     ],
     video: {
-      src: 'https://zhouxin.longjinapi.com/videos/hospital-demo.mp4',
+      src: '/videos/hospital-demo.mp4',
     },
     techStack: [
       { name: 'Vue 3 + TypeScript', desc: '前端管理后台框架' },
@@ -142,7 +142,7 @@ export const projects: Project[] = [
       { src: '/project/ai-video-audit/multi-agent.png', alt: '多 Agent 审核现场' },
     ],
     video: {
-      src: 'https://zhouxin.longjinapi.com/videos/ai-video-audit-demo.mp4',
+      src: '/videos/ai-video-audit-demo.mp4',
     },
     techStack: [
       { name: 'Vue 3 + TypeScript', desc: '前端 SPA 框架与类型安全' },
@@ -158,15 +158,15 @@ export const projects: Project[] = [
   },
   {
     id: '6',
-    title: '卓越智云 AI 产品矩阵',
-    description: '实习期间参与的 AI Box 管理后台、AI Cube 管理后台、设备小程序及 AI 短剧前端等多条业务线开发。',
+    title: '卓越智运 AI 产品矩阵',
+    description: '实习期间参与的 AI Box 管理后台、AI Cube 管理后台、设备小程序及 AI 短剧平台等多条业务线的全栈开发。',
     badge: 'ZY',
     image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=500&fit=crop',
     tags: ['Vue 3', 'Pinia', 'Vite', '微信小程序', 'SSE'],
     links: [
       { label: '源码暂不公开（受公司协议约束，敬请谅解）', href: '#' },
     ],
-    fullDescription: '实习期间在深圳市卓越智云科技有限公司参与多条 AI 产品线的前端开发。包括 AI Box 智能硬件管理后台（设备配置、监控数据可视化）、AI Cube 管理后台（AI 模型管理与部署）、设备产品微信小程序（智能硬件控制与状态展示）以及 AI 短剧生成平台（小说上传→AI 分镜→视频生成全链路交互）。因公司协议限制，此处不展示详细界面截图。',
+    fullDescription: '实习期间在深圳市卓越智运科技有限公司参与多条 AI 产品线的全栈开发。包括 AI Box 智能硬件管理后台（设备配置、监控数据可视化）、AI Cube 管理后台（AI 模型管理与部署）、设备产品微信小程序（智能硬件控制与状态展示）以及 AI 短剧生成平台（小说上传→AI 分镜→视频生成全链路交互）。因公司协议限制，此处不展示详细界面截图。',
     gallery: [],
     techStack: [
       { name: 'Vue 3 + Pinia + Vite', desc: '管理后台技术栈' },
@@ -222,7 +222,7 @@ export const projects: Project[] = [
       { src: '/project/intelliresume/editor.png', alt: '简历编辑器' },
     ],
     video: {
-      src: 'https://zhouxin.longjinapi.com/videos/intelliresume-demo.mp4',
+      src: '/videos/intelliresume-demo.mp4',
     },
     techStack: [
       { name: 'React + TypeScript', desc: '函数式组件与全量类型约束' },
